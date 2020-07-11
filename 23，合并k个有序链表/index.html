@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./index.js"></script>
+  <script>
+    const arr = []
+    const n = 10000
+
+    const heap = new MaxHeap()
+
+    for (let i = 0; i < n; i++) {
+      heap.add(i)
+    }
+
+    while (heap.size() > 0) {
+      arr.push(heap.extract())
+    }
+
+    for (let i = 1; i < n; i++) {
+      if (arr[i] > arr[i - 1]) {
+        throw Error('error')
+      }
+    }
+    console.log('done')
+  </script>
+</body>
+</html>
